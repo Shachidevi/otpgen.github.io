@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Service</title>
+    <style>
+      body{
+        background-image: url(otp.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+      #container{
+        position: relative;
+        border: 2px solid black;
+        width: 300px;
+        padding: 25px 40px 25px 120px;
+        margin: auto;
+        color: antiquewhite;
+        top: 180px;
+        border-radius: 20px;
+        background-color: rgba(40, 28, 88, 0.801);
+      }
+     
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>OTP Generator</h1>
+        <label for="otpGeneration" style="font-size: 20px;">Generated OTP is:<span id="digit" style="font-size: 25px;"></span></label>
+        <br><br>
+        <input type="text" id="input" style="text-align: center;">
+        <button type="button" id="Btn">verify</button>
+        <h4 id="displayAction" style="margin-left: 40px;"></h4>
+        
+    </div>
+</body>
+  <script>
+    let button = document.querySelector("#Btn")
+    let generateOTP = document.querySelector("#digit")
+    let input = document.querySelector("#input")
+
+     setInterval(button1,5000)
+
+     button.addEventListener('click',verifyOTP)
+    
+
+     function button1(){
+      newOTP = Math.floor((Math.random()*9000)+1000)
+      generateOTP.innerHTML = newOTP
+     }
+
+     function verifyOTP(){
+      let action = document.querySelector("#displayAction")
+      let ToVerify = input.value
+
+      if (newOTP == ToVerify){
+        action.innerHTML = "OTP Registered!";
+        action.style.color = "green"
+        action.style.fontSize = '20px'
+
+      }
+      else {
+        action.innerHTML = "OTP Rejected!";
+        action.style.color = 'red';
+        action.style.fontSize = '20px'
+      }
+     }
+      //  setInterval(function(){
+      //   let action = document.querySelector("#displayAction")
+      //   action.style.opacity = (action.style.opacity == 0 ? 1 : 0);
+      //  }, 500);
+
+
+    
+  </script>
+</html>
+
+
